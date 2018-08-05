@@ -1,5 +1,5 @@
-const ADD_TODO = 'ADD_TODO';
-const addTodo = text => ({
+export const ADD_TODO = 'ADD_TODO';
+export const addTodo = text => ({
     type: ADD_TODO,
     text
 });
