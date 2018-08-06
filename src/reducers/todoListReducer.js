@@ -11,19 +11,19 @@ const todoListReducer = (state = [], action) => {
                 text: action.text,
                 done: false
             }
-            console.log(newTodo)
             return [...state, newTodo]
         case TOGGLE_TODO:
             action.todoId
             return state.map(todo => {
-                if(todo.id === action.todoId){
-                    // return Object.assign({}, todo, { done: !todo.done })
+				if (todo.id === action.todoId){
+                    console.log(todo);
                     return {
-                        ...todo,
-                        done: !todo.done
-                    }
-                }
-            }) 
+						...todo,
+						done: !todo.done
+                    };
+                }    
+				return todo;
+			}); 
         default:
             return state;    
     }
