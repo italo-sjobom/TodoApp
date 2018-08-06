@@ -14,23 +14,23 @@ export class TodoForm extends React.Component {
 
     onPress() {
         const { todo } = this.props;
-        if(todo.id) {
-            this.props.dispatchUpdateTodo(todo);
-        } else {
-            const { text } = this.props.todo;
-            this.props.dispatchAddTodo(text);
-        }
+        if(todo.id)
+            return this.props.dispatchUpdateTodo(todo);
+        
+        const { text } = this.props.todo;
+        this.props.dispatchAddTodo(text);
+        
     }
 
     render() {
-        const { text } = this.props.todo;
+        const { text, id } = this.props.todo;
         return (
             <View style={styles.formContainer}>
                 <View style={styles.inputContainer}>
                     <Input onChangeText={text => this.onChangeText(text)} value={text}/>
                 </View>    
                 <View style={styles.buttonContainer}>
-                    <Button title="add" onPress={() => this.onPress()}/>
+                    <Button title={id ? "save" : "add"} onPress={() => this.onPress()}/>
                 </View>
             </View>    
         );
