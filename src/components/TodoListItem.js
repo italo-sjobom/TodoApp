@@ -4,7 +4,10 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 const TodoListItem = ({ todo, onPressTodo }) => (
     <TouchableOpacity onPress={onPressTodo}>
         <View style={styles.line}>
-            <Text style={styles.lineText}>
+            <Text style={[
+                styles.lineText,
+                todo.done ? styles.lineThrough : null
+            ]}>
                 { todo.text }
             </Text>
         </View>
@@ -29,10 +32,12 @@ const styles = StyleSheet.create({
 	avatar: {
 		aspectRatio: 1,
 		flex: 1,
-
 		marginLeft: 15,
 		borderRadius: 50
-	}
+    },
+    lineThrough: {
+        textDecorationLine: 'line-through'
+    }
 });
 
 export default TodoListItem;
