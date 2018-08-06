@@ -13,8 +13,8 @@ export class TodoForm extends React.Component {
     }
 
     onPress() {
-       this.props.dispatchAddTodo(this.state.text);
-       this.setState({ text: ''});
+        const { text } = this.props.todo;
+        this.props.dispatchAddTodo(text);
     }
 
     render() {
@@ -43,16 +43,6 @@ const styles = StyleSheet.create ({
         flex: 1,
     }
 });
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         dispatchAddTodo: text => dispatch(addTodo(text))
-//     }
-// }
-
-// const mapDispatchToProps = {
-//     dispatchAddTodo: addTodo
-// }
 
 const mapStateToProps = state => {
     return {

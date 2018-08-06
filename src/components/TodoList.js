@@ -13,6 +13,7 @@ const TodoList = ({ todos, dispatchToggleTodo }) => (
                 key={todo.id} 
                 todo={todo}
                 onPressTodo={() => dispatchToggleTodo(todo.id)}
+                onLongPressTodo={() => console.log(todo.text)}
             />
         ))}
     </View>
