@@ -1,4 +1,4 @@
-import { SET_TODO_TEXT, ADD_TODO } from '../actions';
+import { SET_TODO_TEXT, ADD_TODO, SET_EDITING_TODO } from '../actions';
 
 const INITIAL_STATE = {
     id: null,
@@ -15,6 +15,8 @@ const editingTodoReducer = (state = INITIAL_STATE, action) => {
             }
         case ADD_TODO:
             return INITIAL_STATE;
+        case SET_EDITING_TODO:
+            return action.todo
         default:
             return state;
     }

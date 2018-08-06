@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Button} from 'react-native';
 import { connect } from 'react-redux';
 
-import { addTodo, setTodoText } from '../actions';
+import { addTodo, updateTodo, setTodoText } from '../actions';
 
 import Input from './Input';
 
@@ -13,8 +13,13 @@ export class TodoForm extends React.Component {
     }
 
     onPress() {
-        const { text } = this.props.todo;
-        this.props.dispatchAddTodo(text);
+        const { todo } = this.props;
+        if(todo.id) {
+            this.props.dispatchUpdateTodo(todo);
+        } else {
+            const { text } = this.props.todo;
+            this.props.dispatchAddTodo(text);
+        }
     }
 
     render() {
@@ -53,5 +58,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, 
     {
         dispatchAddTodo: addTodo,
-        dispatchSetTodoText: setTodoText
+        dispatchSetTodoText: setTodoText,
+        dispatchUpdateTodo: updateTodo
     })(TodoForm);
