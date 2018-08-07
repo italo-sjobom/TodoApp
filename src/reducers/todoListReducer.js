@@ -4,8 +4,7 @@ let nextId = 1;
 
 const todoListReducer = (state = [], action) => {
     switch(action.type) {
-        case ADD_TODO:
-            //adicionar um todo          
+        case ADD_TODO:        
             const newTodo = {
                 id: nextId++,
                 text: action.text,
@@ -34,10 +33,10 @@ const todoListReducer = (state = [], action) => {
             var removeTodo = state.map(function(item){
                 return item.id;
             }).indexOf(action.todo.id);
-
+            
             state.splice(removeTodo, 1);
-
-            return state;
+            
+            return [...state];
         default:
             return state;    
     }

@@ -15,7 +15,6 @@ const TodoListItem = ({ todo, onPressTodo, onLongPressTodo, onPressDeleteTodo })
             ]}>
                 { todo.text }
             </Text>
-			{/* <Button title={titleButton} style={styles.deleteButton} onPress={onPressTodo(titleButton)}/> */}
 			<Button title="delete" style={styles.deleteButton} onPress={onPressDeleteTodo}/>
         </View>
     </TouchableOpacity>
