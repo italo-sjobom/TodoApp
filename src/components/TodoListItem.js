@@ -1,10 +1,13 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Button } from 'react-native';
 
-const TodoListItem = ({ todo, onPressTodo, onLongPressTodo }) => (
-    <TouchableOpacity 
+const titleButton = "delete"
+
+const TodoListItem = ({ todo, onPressTodo, onLongPressTodo, onPressDeleteTodo }) => ( 
+	<TouchableOpacity 
         onPress={onPressTodo}
-        onLongPress={onLongPressTodo}>
+        onLongPress={onLongPressTodo}
+		>
         <View style={styles.line}>
             <Text style={[
                 styles.lineText,
@@ -12,6 +15,8 @@ const TodoListItem = ({ todo, onPressTodo, onLongPressTodo }) => (
             ]}>
                 { todo.text }
             </Text>
+			{/* <Button title={titleButton} style={styles.deleteButton} onPress={onPressTodo(titleButton)}/> */}
+			<Button title="delete" style={styles.deleteButton} onPress={onPressDeleteTodo}/>
         </View>
     </TouchableOpacity>
 );
@@ -39,6 +44,9 @@ const styles = StyleSheet.create({
     },
     lineThrough: {
         textDecorationLine: 'line-through'
+	},
+	deleteButton: {
+        flex: 1,
     }
 });
 

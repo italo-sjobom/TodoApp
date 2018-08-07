@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, UPDATE_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO, UPDATE_TODO, DELETE_TODO } from '../actions';
 
 let nextId = 1;
 
@@ -23,14 +23,21 @@ const todoListReducer = (state = [], action) => {
             action.todoId
             return state.map(todo => {
 				if (todo.id === action.todoId){
-                    console.log(todo);
                     return {
 						...todo,
 						done: !todo.done
                     };
                 }    
 				return todo;
-			}); 
+            }); 
+        case DELETE_TODO:
+            var removeTodo = state.map(function(item){
+                return item.id;
+            }).indexOf(action.todo.id);
+
+            state.splice(removeTodo, 1);
+
+            return state;
         default:
             return state;    
     }
