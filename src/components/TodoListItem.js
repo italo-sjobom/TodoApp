@@ -1,8 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Button } from 'react-native';
 
-const titleButton = "delete"
-
 const TodoListItem = ({ todo, onPressTodo, onLongPressTodo, onPressDeleteTodo }) => ( 
 	<TouchableOpacity 
         onPress={onPressTodo}

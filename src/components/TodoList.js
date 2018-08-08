@@ -21,10 +21,6 @@ const TodoList = ({ todos, dispatchToggleTodo, dispatchSetEditingTodo, dispatchD
 
 );
 
-const styles = StyleSheet.create({
-
-})
-
 const mapsStateToProps = state => {
     const { todos } = state;
     return { todos };

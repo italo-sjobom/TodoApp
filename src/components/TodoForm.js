@@ -19,12 +19,11 @@ export class TodoForm extends React.Component {
 
         const { text } = this.props.todo;
         this.props.dispatchAddTodo(text);
-
     }
 
     render() {
         const { text, id } = this.props.todo;
-        const titleButton = id ? "save" : "add";
+        const titleButton = id ? "save" : "add";       
         return (
             <View style={styles.formContainer}>
                 <View style={styles.inputContainer}>
